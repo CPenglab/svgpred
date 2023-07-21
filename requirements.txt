@@ -1,0 +1,13 @@
+numpy==1.21.6
+pandas==1.5.1
+Pillow==9.4.0
+torch==2.0.0
+torch-cluster==1.6.1+pt20cpu
+torch-geometric==2.3.0
+torch-scatter==2.1.1+pt20cpu
+torch-sparse==0.6.17+pt20cpu
+torch-spline-conv==1.2.1+pt113cpu
+torchaudio==2.0.1
+torchfile==0.1.0
+torchnet==0.0.4
+torchvision==0.15.1
