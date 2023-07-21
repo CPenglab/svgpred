@@ -18,28 +18,28 @@ coor = pd.read_csv("Dataset1/coor_df.csv",
 ### generate images/heatmaps for spatial gene expressions
 SVGPred provides a simple heatmap plotting function based on 'matplotlib'. package.
 ```
-from SVGPred import plot
+from svgpred import plot
 plot.draw_genes(expr, coor, save_dir = "Dataset/imgs")
 ```
 
 ### Load the generated image/heatmap
 Create a Dataset from the generated images.
 ```
-from SVGPred.dataset import Pred_DS
+from svgpred.dataset import Pred_DS
 ds = Pred_DS("Dataset/imgs")
 ```
 
 ### Run SVGPred
 Calculate SVG scores using the fine-tuned model 
 ```
-from SVGPred.ensemble import mean_ensem
+from svgpred.ensemble import mean_ensem
 svgpred = mean_ensem()
 ```
 
 ### Fine-tuning models
 If you want to fine-tune the model using your own dataset, SVGPred provides a training function.
 ```
-from SVGPred.training import run_model
+from svgpred.training import run_model
 run_model(data_root, ds_names, savedir, proc = 4)
 ```
 note
