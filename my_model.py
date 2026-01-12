@@ -23,7 +23,7 @@ class Resnet(nn.Module):
 
 # ======Densenet
 class Densenet(nn.Module):
-    def __init__(self, pretrained:bool, local_tuning = False):
+    def __init__(self, pretrained:bool):
         super(Densenet, self).__init__()
         if pretrained:    
             weights = models.DenseNet121_Weights.IMAGENET1K_V1
