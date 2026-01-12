@@ -114,7 +114,7 @@ def tuning(num: int,
             random_state=42)        
     ds.change_mode(mode="train", leave=num % residue)
 
-    model = my_model.Resnet(pretrained=True)
+    model = my_model.Densenet(pretrained=True)
     model.train()
 
     savepath = os.path.join(savedir, f"comp{num // residue}_{num % residue}")
