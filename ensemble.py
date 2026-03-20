@@ -61,7 +61,7 @@ def pred(imgs_path: str, model_path: str, proc = 0):
 
     ds = dataset.Pred_DS(dir_path = imgs_path)
 
-    model = my_model.Resnet(pretrained = False)
+    model = my_model.Densenet(pretrained = False)
     print(f"loading model {os.path.dirname(os.path.basename(model_path))}...")
     model.load_state_dict(torch.load(model_path))
     model.eval()
