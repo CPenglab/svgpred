@@ -1,5 +1,5 @@
 # SVGPred
-SVGPred can predict spatially variable genes (SVGs) from spatial transcriptomic data via convolutional neural network by fine-tuning the pre-trained ResNet50 model.
+SVGPred can predict spatially variable genes (SVGs) from spatial transcriptomic data via convolutional neural network by fine-tuning the pre-trained Densenet121 model.
 ## Usage
 ### Load Spatial Transcriptomic Data
 Use the pandas package to read the count matrix and coordinate information. Since the purpose of count data is to generate the gene expression image/heatmap, if the count file is too large, the matrix can be split.
