@@ -8,7 +8,7 @@ import pandas as pd
 expr = pd.read_csv("Dataset/count_df.csv",
                    header = 0,
                    index_col = 0,
-                   sep = ",")
+                   sep = ",") # shape(spots, genes)
 coor = pd.read_csv("Dataset/coor_df.csv",
                    header = 0,
                    index_col = 0,
