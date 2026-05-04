@@ -23,8 +23,9 @@ SVGPred provides a simple heatmap plotting function based on 'matplotlib' packag
 ```
 from svgpred import plot
 # Plot scatter with point size adjusted to fill empty space as much as possible
+imgs_dir = "path/to/your/imgs" # directory to save generated images
 plot.draw_genes(expr, coor,
-                save_dir = "path/to/your/imgs",
+                save_dir = imgs_dir,
                 marker = "s",
                 spots_size = None) # auto-adjust if None; otherwise use the specified size
 ```
@@ -33,14 +34,14 @@ plot.draw_genes(expr, coor,
 Create a Dataset from the generated images.
 ```
 from svgpred.dataset import Pred_DS
-ds = Pred_DS("path/to/your/imgs")
+ds = Pred_DS(imgs_dir)
 ```
 
 ### Run SVGPred
 Calculate SVG scores using the fine-tuned model 
 ```
 from svgpred.ensemble import mean_ensem
-svgpred = mean_ensem(imgs_path = "path/to/your/imgs",
+svgpred = mean_ensem(imgs_path = imgs_dir,
                      model_dir="svgpred/models/",
                      proc=10)
 ```
