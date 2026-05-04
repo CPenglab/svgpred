@@ -5,31 +5,31 @@ SVGPred can predict spatially variable genes (SVGs) from spatial transcriptomic 
 1. Clone this repo.
 2. Copy the "svgpred" folder into your project directory.
 ### Load Spatial Transcriptomic Data
-Use the pandas package to read the count matrix and coordinate information. Since the purpose of count data is to generate the gene expression image/heatmap, if the count file is too large, the matrix can be split.
+Use the 'pandas' package to read the count matrix and coordinate information. Since the purpose of count data is to generate the gene expression image/heatmap, if the count file is too large, the matrix can be split.
 ```
 import pandas as pd
-expr = pd.read_csv("Dataset/count_df.csv",
+expr = pd.read_csv("path/to/your/count_df.csv",
                    header = 0,
                    index_col = 0,
-                   sep = ",") # shape(spots, genes)
-coor = pd.read_csv("Dataset/coor_df.csv",
+                   sep = ",") # shape: (spots, genes)
+coor = pd.read_csv("path/to/your/coor_df.csv",
                    header = 0,
                    index_col = 0,
                    sep = ",")
 ```
 
 ### generate images/heatmaps for spatial gene expressions
-SVGPred provides a simple heatmap plotting function based on 'matplotlib'. package.
+SVGPred provides a simple heatmap plotting function based on 'matplotlib' package.
 ```
 from svgpred import plot
-plot.draw_genes(expr, coor, save_dir = "Dataset/imgs")
+plot.draw_genes(expr, coor, save_dir = "path/to/your/imgs")
 ```
 
 ### Load the generated image/heatmap
 Create a Dataset from the generated images.
 ```
 from svgpred.dataset import Pred_DS
-ds = Pred_DS("Dataset/imgs")
+ds = Pred_DS("path/to/your/imgs")
 ```
 
 ### Run SVGPred
