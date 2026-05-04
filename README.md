@@ -40,7 +40,9 @@ ds = Pred_DS("path/to/your/imgs")
 Calculate SVG scores using the fine-tuned model 
 ```
 from svgpred.ensemble import mean_ensem
-svgpred = mean_ensem(imgs_path = "path/to/your/imgs", model_dir="svgpred/models/", proc=10)
+svgpred = mean_ensem(imgs_path = "path/to/your/imgs",
+                     model_dir="svgpred/models/",
+                     proc=10)
 ```
 
 ### Fine-tuning models
