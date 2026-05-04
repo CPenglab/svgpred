@@ -22,7 +22,11 @@ coor = pd.read_csv("path/to/your/coor_df.csv",
 SVGPred provides a simple heatmap plotting function based on 'matplotlib' package.
 ```
 from svgpred import plot
-plot.draw_genes(expr, coor, save_dir = "path/to/your/imgs")
+# Plot scatter with point size adjusted to fill empty space as much as possible
+plot.draw_genes(expr, coor,
+                save_dir = "path/to/your/imgs",
+                marker = "s",
+                spots_size = None) # auto-adjust if None; otherwise use the specified size
 ```
 
 ### Load the generated image/heatmap
@@ -36,7 +40,7 @@ ds = Pred_DS("path/to/your/imgs")
 Calculate SVG scores using the fine-tuned model 
 ```
 from svgpred.ensemble import mean_ensem
-svgpred = mean_ensem()
+svgpred = mean_ensem(imgs_path = "path/to/your/imgs", model_dir="svgpred/models/", proc=10)
 ```
 
 ### Fine-tuning models
