@@ -62,7 +62,7 @@ def pred(imgs_path: str, model_path: str, proc = 0):
     ds = dataset.Pred_DS(dir_path = imgs_path)
 
     model = my_model.Densenet(pretrained = False)
-    print(f"loading model {os.path.dirname(os.path.basename(model_path))}...")
+    print(f"loading model {os.path.basename(model_path)}...")
     model.load_state_dict(torch.load(model_path))
     model.eval()
     res = predict_(ds, model, proc=proc)
@@ -83,7 +83,7 @@ def mean_ensem(imgs_path:str, model_dir = "./models",
     """
     Ensemble output.
     =================================
-    imgs_path: str, The directory of gene imgs that generated for a dataset by draw.py
+    imgs_path: str, The directory of gene imgs that generated for a dataset by plot.py
     model_dir: str, The directory containing all folders with '.pth' files.
     """
 
@@ -92,7 +92,7 @@ def mean_ensem(imgs_path:str, model_dir = "./models",
 
     res = []
     for i in model_list:
-        res.append(pred(i, imgs_path = imgs_path, proc=proc))
+        res.append(pred(imgs_path = imgs_path, model_path = i, proc=proc))
 
     me_res = mean_ensem_(res)
     me_res = me_res.loc[me_res["pred"] == 1, :]
