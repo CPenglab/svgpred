@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 from typing import Union
+from tqdm import tqdm
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
@@ -48,7 +49,7 @@ def draw_genes(expr: pd.DataFrame,
     if isinstance(cmap, mpl.colors.ListedColormap):
         ax.set_prop_cycle(color=cmap.colors)
 
-    for i in expr.index:
+    for i in tqdm(expr.columns):
         ax.scatter(coor.iloc[:, 0],
                    coor.iloc[:, 1],
                    c=expr.loc[:, i],
